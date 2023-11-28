@@ -11,6 +11,16 @@ function prepareFilters(filters: Filter[]) {
   }))
 }
 
+function itemIsFilterItem(
+  dimension: Dimension,
+  item: any,
+  filters: Filter[]
+) {
+  return !!filters.find(
+    (f) => f.name === valueForDimension(item, dimension) && f.dimension === dimension
+  )
+}
+
 function doFilterData(dimension: Dimension, filters: Filter[]) {
   if (filters.filter((f) => f.dimension !== dimension).length === 0) {
     return data
@@ -31,47 +41,12 @@ function doFilterData(dimension: Dimension, filters: Filter[]) {
           return
         }
 
-        switch (dimensionFilter.dimension) {
-          case Dimension.deviceType:
-            if (dimension === Dimension.deviceType) {
-              return (itemMatches = true)
-            }
-            if (item.Devicetype === value) {
-              itemMatches = true
-            }
-            return
-          case Dimension.country:
-            if (dimension === Dimension.country) {
-              return (itemMatches = true)
-            }
-            if (item.Country === value) {
-              itemMatches = true
-            }
-            return
-          case Dimension.page:
-            if (dimension === Dimension.page) {
-              return (itemMatches = true)
-            }
-            if (item.Page === value) {
-              itemMatches = true
-            }
-            return
-          case Dimension.operatingSystem:
-            if (dimension === Dimension.operatingSystem) {
-              return (itemMatches = true)
-            }
-            if (item.OperatingSystem === value) {
-              itemMatches = true
-            }
-            return
-          case Dimension.browser:
-            if (dimension === Dimension.browser) {
-              return (itemMatches = true)
-            }
-            if (item.Browser === value) {
-              itemMatches = true
-            }
-            return
+        if (
+          dimensionFilter.dimension === dimension ||
+          itemIsFilterItem(dimension, item, filters) ||
+          valueForDimension(item, dimensionFilter.dimension) === value
+        ) {
+          itemMatches = true
         }
       })
 
@@ -128,7 +103,7 @@ function filterData(dimension: Dimension, filters: Filter[]) {
   })
 }
 
-function mapPerDimension(item: any, dimension: Dimension) {
+function valueForDimension(item: any, dimension: Dimension) {
   switch (dimension) {
     case Dimension.browser:
       return item.Browser
@@ -144,24 +119,15 @@ function mapPerDimension(item: any, dimension: Dimension) {
 }
 
 function filterPerDimension(item: any, needle: string, dimension: Dimension) {
-  switch (dimension) {
-    case Dimension.browser:
-      return item.Browser === needle
-    case Dimension.country:
-      return item.Country === needle
-    case Dimension.deviceType:
-      return item.Devicetype === needle
-    case Dimension.operatingSystem:
-      return item.OperatingSystem === needle
-    case Dimension.page:
-      return item.Page === needle
-  }
+  return valueForDimension(item, dimension) === needle
 }
 
 export function filtered(dimension: Dimension, filters: Filter[]) {
   const filteredData = doFilterData(dimension, filters)
 
-  const unique = [...new Set(filteredData.map((m) => mapPerDimension(m, dimension)))]
+  // TODO: fix count
+
+  const unique = [...new Set(filteredData.map((m) => valueForDimension(m, dimension)))]
   const result = unique.map((u) => ({
     name: u,
     count: filteredData.filter((m) => filterPerDimension(m, u, dimension)).length
