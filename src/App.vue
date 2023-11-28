@@ -25,8 +25,8 @@ const filters = computed(() => {
         <div class="filter">{{ filter.dimension }}: {{ value }}</div>
         <div v-if="j < filter.values.length - 1" class="or">or</div>
       </template>
-      <div v-if="i < filters.length - 1" class="or">and</div>
       <div v-if="filter.values.length > 1">)</div>
+      <div v-if="i < filters.length - 1" class="or">and</div>
     </template>
   </div>
   <div class="container">

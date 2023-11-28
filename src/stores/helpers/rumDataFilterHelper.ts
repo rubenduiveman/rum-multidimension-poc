@@ -11,21 +11,7 @@ function prepareFilters(filters: Filter[]) {
   }))
 }
 
-function itemIsFilterItem(
-  dimension: Dimension,
-  item: any,
-  filters: Filter[]
-) {
-  return !!filters.find(
-    (f) => f.name === valueForDimension(item, dimension) && f.dimension === dimension
-  )
-}
-
 function doFilterData(dimension: Dimension, filters: Filter[]) {
-  if (filters.filter((f) => f.dimension !== dimension).length === 0) {
-    return data
-  }
-
   // match one in every dimension
   const filtersPerDimension = prepareFilters(filters)
   return data.filter((item) => {
@@ -43,7 +29,6 @@ function doFilterData(dimension: Dimension, filters: Filter[]) {
 
         if (
           dimensionFilter.dimension === dimension ||
-          itemIsFilterItem(dimension, item, filters) ||
           valueForDimension(item, dimensionFilter.dimension) === value
         ) {
           itemMatches = true
@@ -125,13 +110,20 @@ function filterPerDimension(item: any, needle: string, dimension: Dimension) {
 export function filtered(dimension: Dimension, filters: Filter[]) {
   const filteredData = doFilterData(dimension, filters)
 
-  // TODO: fix count
-
   const unique = [...new Set(filteredData.map((m) => valueForDimension(m, dimension)))]
-  const result = unique.map((u) => ({
+  const result: DataSet[] = unique.map((u) => ({
     name: u,
     count: filteredData.filter((m) => filterPerDimension(m, u, dimension)).length
-  })) as DataSet[]
+  }))
+
+  // extra pass over filters to make sure they are in the list
+  prepareFilters(filters).forEach((f) => {
+    f.values.forEach((value) => {
+      if (!result.find((item) => value === item.name) && f.dimension === dimension) {
+        result.push({ name: value, count: 0 })
+      }
+    })
+  })
 
   return result.sort(function (a, b) {
     if (a.name.toLocaleLowerCase() < b.name.toLocaleLowerCase()) {
