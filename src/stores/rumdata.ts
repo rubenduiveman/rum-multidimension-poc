@@ -72,19 +72,24 @@ export const useRumDataStore = defineStore('counter', () => {
       filters.value.filter((f) => f.dimension !== Dimension.page).length === 0
         ? data
         : data.filter((item) => {
-            for (let i = 0; i < filters.value.length; i++) {
-              const f = filters.value[i]
-              switch (f.dimension) {
-                case Dimension.browser:
-                  return item.Browser === f.name
-                case Dimension.country:
-                  return item.Country === f.name
-                case Dimension.deviceType:
-                  return item.Devicetype === f.name
-                case Dimension.operatingSystem:
-                  return item.OperatingSystem === f.name
+            let itemMatches = true
+            filters.value.forEach((f) => {
+              if (!itemMatches) {
+                return
               }
-            }
+              switch (f.dimension) {
+                case Dimension.deviceType:
+                  return (itemMatches = item.Devicetype === f.name)
+                case Dimension.country:
+                  return (itemMatches = item.Country === f.name)
+                case Dimension.browser:
+                  return (itemMatches = item.Browser === f.name)
+                case Dimension.operatingSystem:
+                  return (itemMatches = item.OperatingSystem === f.name)
+              }
+            })
+
+            return itemMatches
           })
 
     const unique = [...new Set(filteredData.map((m) => m.Page))]
@@ -110,19 +115,24 @@ export const useRumDataStore = defineStore('counter', () => {
       filters.value.filter((f) => f.dimension !== Dimension.deviceType).length === 0
         ? data
         : data.filter((item) => {
-            for (let i = 0; i < filters.value.length; i++) {
-              const f = filters.value[i]
+            let itemMatches = true
+            filters.value.forEach((f) => {
+              if (!itemMatches) {
+                return
+              }
               switch (f.dimension) {
                 case Dimension.browser:
-                  return item.Browser === f.name
+                  return (itemMatches = item.Browser === f.name)
                 case Dimension.country:
-                  return item.Country === f.name
+                  return (itemMatches = item.Country === f.name)
                 case Dimension.page:
-                  return item.Page === f.name
+                  return (itemMatches = item.Page === f.name)
                 case Dimension.operatingSystem:
-                  return item.OperatingSystem === f.name
+                  return (itemMatches = item.OperatingSystem === f.name)
               }
-            }
+            })
+
+            return itemMatches
           })
 
     const unique = [...new Set(filteredData.map((m) => m.Devicetype))]
@@ -148,19 +158,24 @@ export const useRumDataStore = defineStore('counter', () => {
       filters.value.filter((f) => f.dimension !== Dimension.country).length === 0
         ? data
         : data.filter((item) => {
-            for (let i = 0; i < filters.value.length; i++) {
-              const f = filters.value[i]
-              switch (f.dimension) {
-                case Dimension.browser:
-                  return item.Browser === f.name
-                case Dimension.deviceType:
-                  return item.Devicetype === f.name
-                case Dimension.page:
-                  return item.Page === f.name
-                case Dimension.operatingSystem:
-                  return item.OperatingSystem === f.name
+            let itemMatches = true
+            filters.value.forEach((f) => {
+              if (!itemMatches) {
+                return
               }
-            }
+              switch (f.dimension) {
+                case Dimension.deviceType:
+                  return (itemMatches = item.Devicetype === f.name)
+                case Dimension.browser:
+                  return (itemMatches = item.Browser === f.name)
+                case Dimension.page:
+                  return (itemMatches = item.Page === f.name)
+                case Dimension.operatingSystem:
+                  return (itemMatches = item.OperatingSystem === f.name)
+              }
+            })
+
+            return itemMatches
           })
 
     const unique = [...new Set(filteredData.map((m) => m.Country))]
@@ -186,19 +201,24 @@ export const useRumDataStore = defineStore('counter', () => {
       filters.value.filter((f) => f.dimension !== Dimension.browser).length === 0
         ? data
         : data.filter((item) => {
-            for (let i = 0; i < filters.value.length; i++) {
-              const f = filters.value[i]
+            let itemMatches = true
+            filters.value.forEach((f) => {
+              if (!itemMatches) {
+                return
+              }
               switch (f.dimension) {
                 case Dimension.deviceType:
-                  return item.Devicetype === f.name
+                  return (itemMatches = item.Devicetype === f.name)
                 case Dimension.country:
-                  return item.Country === f.name
+                  return (itemMatches = item.Country === f.name)
                 case Dimension.page:
-                  return item.Page === f.name
+                  return (itemMatches = item.Page === f.name)
                 case Dimension.operatingSystem:
-                  return item.OperatingSystem === f.name
+                  return (itemMatches = item.OperatingSystem === f.name)
               }
-            }
+            })
+
+            return itemMatches
           })
 
     const unique = [...new Set(filteredData.map((m) => m.Browser))]
@@ -224,19 +244,24 @@ export const useRumDataStore = defineStore('counter', () => {
       filters.value.filter((f) => f.dimension !== Dimension.operatingSystem).length === 0
         ? data
         : data.filter((item) => {
-            for (let i = 0; i < filters.value.length; i++) {
-              const f = filters.value[i]
-              switch (f.dimension) {
-                case Dimension.browser:
-                  return item.Browser === f.name
-                case Dimension.country:
-                  return item.Country === f.name
-                case Dimension.page:
-                  return item.Page === f.name
-                case Dimension.deviceType:
-                  return item.Devicetype === f.name
+            let itemMatches = true
+            filters.value.forEach((f) => {
+              if (!itemMatches) {
+                return
               }
-            }
+              switch (f.dimension) {
+                case Dimension.deviceType:
+                  return (itemMatches = item.Devicetype === f.name)
+                case Dimension.country:
+                  return (itemMatches = item.Country === f.name)
+                case Dimension.page:
+                  return (itemMatches = item.Page === f.name)
+                case Dimension.browser:
+                  return (itemMatches = item.Browser === f.name)
+              }
+            })
+
+            return itemMatches
           })
 
     const unique = [...new Set(filteredData.map((m) => m.OperatingSystem))]
