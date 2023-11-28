@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import Tile from '@/components/Tile.vue'
 import { useRumDataStore, Dimension } from '@/stores/rumdata'
-import { computed } from 'vue';
+import { computed } from 'vue'
 
-const rumData = useRumDataStore();
+const rumData = useRumDataStore()
 
 const filters = computed(() => {
   const unique = [...new Set(rumData.filters.map((f) => f.dimension))]
 
   return unique.map((d) => {
-    return  {
+    return {
       dimension: d,
-      values: rumData.filters.filter((f) => f.dimension === d).map((f) => f.name),
+      values: rumData.filters.filter((f) => f.dimension === d).map((f) => f.name)
     }
   })
 })
@@ -28,7 +28,7 @@ const filters = computed(() => {
       <div v-if="i < filters.length - 1" class="or">and</div>
       <div v-if="filter.values.length > 1">)</div>
     </template>
-    </div>
+  </div>
   <div class="container">
     <Tile :dimension="Dimension.page" title="Pages" />
     <Tile :dimension="Dimension.deviceType" title="Device types" />

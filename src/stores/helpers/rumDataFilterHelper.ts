@@ -37,41 +37,41 @@ function doFilterData(dimension: Dimension, filters: Filter[]) {
               return (itemMatches = true)
             }
             if (item.Devicetype === value) {
-              itemMatches = true;
+              itemMatches = true
             }
-            return;
+            return
           case Dimension.country:
             if (dimension === Dimension.country) {
               return (itemMatches = true)
             }
             if (item.Country === value) {
-              itemMatches = true;
+              itemMatches = true
             }
-            return;
+            return
           case Dimension.page:
             if (dimension === Dimension.page) {
               return (itemMatches = true)
             }
             if (item.Page === value) {
-              itemMatches = true;
+              itemMatches = true
             }
-            return;
+            return
           case Dimension.operatingSystem:
             if (dimension === Dimension.operatingSystem) {
               return (itemMatches = true)
             }
             if (item.OperatingSystem === value) {
-              itemMatches = true;
+              itemMatches = true
             }
-            return;
+            return
           case Dimension.browser:
             if (dimension === Dimension.browser) {
               return (itemMatches = true)
             }
             if (item.Browser === value) {
-              itemMatches = true;
+              itemMatches = true
             }
-            return;
+            return
         }
       })
 

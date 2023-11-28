@@ -30,7 +30,7 @@ export const useRumDataStore = defineStore('counter', () => {
     [Dimension.country]: computed(() => filtered(Dimension.country, filters.value)),
     [Dimension.deviceType]: computed(() => filtered(Dimension.deviceType, filters.value)),
     [Dimension.operatingSystem]: computed(() => filtered(Dimension.operatingSystem, filters.value)),
-    [Dimension.page]: computed(() => filtered(Dimension.page, filters.value)),
+    [Dimension.page]: computed(() => filtered(Dimension.page, filters.value))
   }))
 
   function addFilter(filter: Filter) {

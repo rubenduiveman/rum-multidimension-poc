@@ -84,7 +84,7 @@ tbody tr:hover {
 }
 
 tr.active {
-  background-color: #89DDFF;
+  background-color: #89ddff;
 }
 
 tr.active:hover {
