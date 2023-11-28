@@ -1,17 +1,18 @@
 <script setup lang="ts">
 import Tile from '@/components/Tile.vue';
-import { useRumDataStore } from '@/stores/rumdata';
+import { useRumDataStore, Dimension } from '@/stores/rumdata';
 
 const rumData = useRumDataStore()
 </script>
 
 <template>
+  {{  rumData.filters }}
   <div class="container">
-    <Tile :data="rumData.pages" title="Pages"/>
-    <Tile :data="rumData.deviceTypes" title="Device types"/>
-    <Tile :data="rumData.countries" title="Countries"/>
-    <Tile :data="rumData.browsers" title="Browsers"/>
-    <Tile :data="rumData.operatingSystems" title="Operating systems"/>
+    <Tile :dimension="Dimension.page" title="Pages"/>
+    <Tile :dimension="Dimension.deviceType" title="Device types"/>
+    <Tile :dimension="Dimension.country" title="Countries"/>
+    <Tile :dimension="Dimension.browser" title="Browsers"/>
+    <Tile :dimension="Dimension.operatingSystem" title="Operating systems"/>
   </div>
 </template>
 
