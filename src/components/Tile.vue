@@ -5,10 +5,10 @@ import { useRumDataStore, Dimension } from '@/stores/rumdata'
 const props = defineProps<{ dimension: Dimension; title: string }>()
 
 const rumData = useRumDataStore()
-const { all, filtered } = rumData.data[props.dimension]
+const data = rumData.data[props.dimension]
 
 const total = computed(() => {
-  return filtered.value.reduce((acc, curr) => acc + curr.count, 0)
+  return data.value.reduce((acc, curr) => acc + curr.count, 0)
 })
 </script>
 
@@ -26,7 +26,7 @@ const total = computed(() => {
       <tbody>
         <tr
           :class="rumData.hasFilter({ dimension, name: item.name }) ? 'active' : undefined"
-          v-for="item in filtered"
+          v-for="item in data"
           :key="item.name"
           @click="rumData.toggleFilter({ dimension, name: item.name })"
         >
