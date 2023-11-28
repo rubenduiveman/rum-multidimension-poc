@@ -1,0 +1,205 @@
+[
+  {
+    "Page": "Home",
+    "Devicetype": "TV",
+    "Country": "Australia",
+    "Browser": "Edge",
+    "OperatingSystem": "iOS"
+  },
+  {
+    "Page": "Status",
+    "Devicetype": "TV",
+    "Country": "United States",
+    "Browser": "Safari",
+    "OperatingSystem": "iOS"
+  },
+  {
+    "Page": "Contact",
+    "Devicetype": "Console",
+    "Country": "United Kingdom",
+    "Browser": "Chrome",
+    "OperatingSystem": "iOS"
+  },
+  {
+    "Page": "Status",
+    "Devicetype": "Console",
+    "Country": "Netherlands",
+    "Browser": "Edge",
+    "OperatingSystem": "Mac OS"
+  },
+  {
+    "Page": "API",
+    "Devicetype": "Desktop",
+    "Country": "Netherlands",
+    "Browser": "Internet Explorer",
+    "OperatingSystem": "Mac OS"
+  },
+  {
+    "Page": "About",
+    "Devicetype": "Mobile",
+    "Country": "United Kingdom",
+    "Browser": "Safari",
+    "OperatingSystem": "iOS"
+  },
+  {
+    "Page": "Contact",
+    "Devicetype": "TV",
+    "Country": "United Kingdom",
+    "Browser": "Internet Explorer",
+    "OperatingSystem": "Android"
+  },
+  {
+    "Page": "Status",
+    "Devicetype": "TV",
+    "Country": "Netherlands",
+    "Browser": "Safari",
+    "OperatingSystem": "Mac OS"
+  },
+  {
+    "Page": "Home",
+    "Devicetype": "TV",
+    "Country": "Netherlands",
+    "Browser": "Chrome",
+    "OperatingSystem": "iOS"
+  },
+  {
+    "Page": "API",
+    "Devicetype": "Mobile",
+    "Country": "Netherlands",
+    "Browser": "Edge",
+    "OperatingSystem": "Mac OS"
+  },
+  {
+    "Page": "Status",
+    "Devicetype": "Console",
+    "Country": "Germany",
+    "Browser": "Safari",
+    "OperatingSystem": "Mac OS"
+  },
+  {
+    "Page": "API",
+    "Devicetype": "Mobile",
+    "Country": "United Kingdom",
+    "Browser": "Internet Explorer",
+    "OperatingSystem": "Android"
+  },
+  {
+    "Page": "Destinations",
+    "Devicetype": "Mobile",
+    "Country": "Germany",
+    "Browser": "Internet Explorer",
+    "OperatingSystem": "iOS"
+  },
+  {
+    "Page": "Destinations",
+    "Devicetype": "Console",
+    "Country": "Netherlands",
+    "Browser": "Safari",
+    "OperatingSystem": "Mac OS"
+  },
+  {
+    "Page": "API",
+    "Devicetype": "TV",
+    "Country": "Germany",
+    "Browser": "Safari",
+    "OperatingSystem": "iOS"
+  },
+  {
+    "Page": "Contact",
+    "Devicetype": "Console",
+    "Country": "United States",
+    "Browser": "Internet Explorer",
+    "OperatingSystem": "Mac OS"
+  },
+  {
+    "Page": "API",
+    "Devicetype": "Mobile",
+    "Country": "Germany",
+    "Browser": "Safari",
+    "OperatingSystem": "iOS"
+  },
+  {
+    "Page": "Status",
+    "Devicetype": "Console",
+    "Country": "Australia",
+    "Browser": "Edge",
+    "OperatingSystem": "Android"
+  },
+  {
+    "Page": "Destinations",
+    "Devicetype": "Desktop",
+    "Country": "Australia",
+    "Browser": "Edge",
+    "OperatingSystem": "Android"
+  },
+  {
+    "Page": "Contact",
+    "Devicetype": "Mobile",
+    "Country": "France",
+    "Browser": "Internet Explorer",
+    "OperatingSystem": "iOS"
+  },
+  {
+    "Page": "About",
+    "Devicetype": "TV",
+    "Country": "United States",
+    "Browser": "Safari",
+    "OperatingSystem": "iOS"
+  },
+  {
+    "Page": "Contact",
+    "Devicetype": "Console",
+    "Country": "Germany",
+    "Browser": "Internet Explorer",
+    "OperatingSystem": "iOS"
+  },
+  {
+    "Page": "Destinations",
+    "Devicetype": "TV",
+    "Country": "United Kingdom",
+    "Browser": "Internet Explorer",
+    "OperatingSystem": "Windows"
+  },
+  {
+    "Page": "Destinations",
+    "Devicetype": "Mobile",
+    "Country": "France",
+    "Browser": "Edge",
+    "OperatingSystem": "Mac OS"
+  },
+  {
+    "Page": "API",
+    "Devicetype": "Mobile",
+    "Country": "France",
+    "Browser": "Safari",
+    "OperatingSystem": "Android"
+  },
+  {
+    "Page": "About",
+    "Devicetype": "Mobile",
+    "Country": "Australia",
+    "Browser": "Internet Explorer",
+    "OperatingSystem": "iOS"
+  },
+  {
+    "Page": "API",
+    "Devicetype": "TV",
+    "Country": "France",
+    "Browser": "Safari",
+    "OperatingSystem": "Android"
+  },
+  {
+    "Page": "Destinations",
+    "Devicetype": "Console",
+    "Country": "Germany",
+    "Browser": "Safari",
+    "OperatingSystem": "Android"
+  },
+  {
+    "Page": "About",
+    "Devicetype": "Console",
+    "Country": "Australia",
+    "Browser": "Safari",
+    "OperatingSystem": "iOS"
+  }
+]
