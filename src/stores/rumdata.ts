@@ -22,8 +22,9 @@ export enum Dimension {
   operatingSystem = 'operatingSystem'
 }
 
-export const useRumDataStore = defineStore('counter', () => {
+export const useRumDataStore = defineStore('rum', () => {
   const filters = ref<Filter[]>([])
+  const loading = ref<boolean>(false);
 
   const dataSet = computed(() => ({
     [Dimension.browser]: computed(() => filtered(Dimension.browser, filters.value)),
@@ -48,16 +49,21 @@ export const useRumDataStore = defineStore('counter', () => {
   }
 
   function toggleFilter(filter: Filter) {
-    if (hasFilter(filter)) {
-      removeFilter(filter)
-    } else {
-      addFilter(filter)
-    }
+    loading.value = true;
+    setTimeout(() => {
+      if (hasFilter(filter)) {
+        removeFilter(filter)
+      } else {
+        addFilter(filter)
+      }
+      loading.value = false;
+    }, 2300);
   }
 
   return {
     data: dataSet,
     filters,
+    loading,
     addFilter,
     hasFilter,
     removeFilter,
