@@ -25,6 +25,7 @@ export enum Dimension {
 export const useRumDataStore = defineStore('rum', () => {
   const filters = ref<Filter[]>([])
   const loading = ref<boolean>(false);
+  const timeout = ref<number>(3700);
 
   const dataSet = computed(() => ({
     [Dimension.browser]: computed(() => filtered(Dimension.browser, filters.value)),
@@ -56,14 +57,15 @@ export const useRumDataStore = defineStore('rum', () => {
       } else {
         addFilter(filter)
       }
-      loading.value = false;
-    }, 2300);
+      loading.value = false
+    }, timeout.value)
   }
 
   return {
     data: dataSet,
     filters,
     loading,
+    timeout,
     addFilter,
     hasFilter,
     removeFilter,

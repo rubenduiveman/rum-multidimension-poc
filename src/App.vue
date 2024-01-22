@@ -18,6 +18,11 @@ const filters = computed(() => {
 </script>
 
 <template>
+  <div class="timeout">
+    <div class="timeout-input">
+    Server delay: <input type="number" v-model="rumData.timeout" />ms
+    </div>
+  </div>
   <div class="filters">
     <template v-for="(filter, i) in filters" :key="filter.name">
       <div v-if="filter.values.length > 1">(</div>
@@ -46,6 +51,23 @@ const filters = computed(() => {
   padding: 80px;
   width: 100vw;
   max-width: 2256px;
+}
+
+.timeout {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 0;
+  
+  .timeout-input {
+    border: 1px solid #d2d2d2;
+    padding: 8px 16px;
+    border-radius: 4px;
+  }
+
+  input {
+    width: 56px;
+  }
 }
 
 .filters {
